@@ -34,4 +34,4 @@ Examples are availables in the *examples* directory
 Feel free to ask for request or to do pull request if you think you've improved the plugin
 
 ## License  
-This piece of software is issued under the GNU GENERAL PUBLIC LICENSE. You can view the license [here](https://github.com/A2SI-RFID/canvasDrawingJS/blob/master/LICENSE.md)
+This piece of software is issued under the GNU GENERAL PUBLIC LICENSE. You can view the license [here](https://github.com/A2SI-RFID/canvasDrawingJS/blob/master/LICENSE)
