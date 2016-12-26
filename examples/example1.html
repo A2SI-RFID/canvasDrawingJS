@@ -1,0 +1,93 @@
+<!Doctype html>
+<html>
+<head>
+	<title> canvasDrawingJS Example 1 </title>
+	<style>
+		#canvasDrawing{
+			margin: 10px 5%;
+			width : 90%;
+			height : auto;
+		}
+
+		#canvasDrawing canvas {
+			margin : auto;
+			display : block;
+			border  : 1px solid black;
+		}
+
+		#toolbar, #result {
+			width : 90%;
+			text-align: center;
+			margin : 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="canvasDrawing"></div>
+	<div id="toolbar">
+		<button id="black"> Black </button>
+		<button id="red"> Red </button>
+		<button id="green"> Green </button>
+		<button id="blue"> Blue </button>
+		<button id="clear"> Clear </button>
+		<button id="clear"> Clear </button>
+		<button id="plus"> + </button>
+		<button id="less"> - </button>
+		<button id="save"> Save </button>
+	</div>
+	<div id="result">
+		<img id="imgResult" alt="result image not available"/>
+	</div>
+
+<script type="text/javascript" src="../ressources/reimg.js"></script>
+<script type="text/javascript" src="../canvasDrawing.js" ></script>
+<script type="text/javascript">
+	// initiate the canvas
+	var canvasDrawing = new CanvasDrawing.CanvasDrawing(document.getElementById("canvasDrawing"),500,500);
+
+	// bind color button click
+	document.querySelector("#black").addEventListener('click',function(){
+		canvasDrawing.setColor("#000000");
+	})
+
+	// bind color button click
+	document.querySelector("#red").addEventListener('click',function(){
+		canvasDrawing.setColor("#FF0000");
+	})
+
+	// bind color button click
+	document.querySelector("#green").addEventListener('click',function(){
+		canvasDrawing.setColor("#00FF00");
+	})
+
+	// bind color button click
+	document.querySelector("#blue").addEventListener('click',function(){
+		canvasDrawing.setColor("#0000FF");
+	})
+
+	// bind clear click
+	document.querySelector("#clear").addEventListener('click',function(){
+		canvasDrawing.clear();
+	})
+
+	// bind increase size button click
+	document.querySelector("#plus").addEventListener('click',function(){
+		canvasDrawing.setSize(parseInt(canvasDrawing.getSize()) + 5);
+	})
+
+	// bind reduce size button click
+	document.querySelector("#less").addEventListener('click',function(){
+		canvasDrawing.setSize(canvasDrawing.getSize() - 5);
+	})
+
+	// bind save button click
+	document.querySelector("#save").addEventListener('click',function(){
+		var source = canvasDrawing.getImg();
+		var img = document.querySelector("#imgResult");
+		img.src = source;
+		img.onLoad = function(){console.log("loaded")};
+	})
+
+</script>
+</body>
+</html>
