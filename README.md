@@ -4,8 +4,14 @@ Responsive JS Wrapper to allow drawing in a canvas with the mouse or touching th
 ### How to use
 
 - import canvasDrawing.js in the file you need it
-- create a new instance of the plugin calling ```new CanvasDrawing.CanvasDrawing(elt,width,height);```
+- create a new instance of the plugin calling ```new CanvasDrawing.CanvasDrawing(elt,width,height,params);```
 - store the result to be able to call plugin's methods
+
+### CanvasDrawing parameters
+- ```elt``` : canvas location
+- ```width``` : canvas width
+- ```height``` : canvas height
+- ```params (optionnal)``` : object in which you can specify canvas parameters. Only one param is actually support: background_color which set canvas' background color, default value is white (#ffffff)
 
 ### Dependance
 

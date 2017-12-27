@@ -9,9 +9,15 @@ var CanvasDrawing = {
      * @param {Div} elt
      * @param {int} width
      * @param {int} height
+     * @param {object} optional canvas parameters
      * @returns {CanvasDrawing}
      */
-    CanvasDrawing: function (elt, width, height) {
+    CanvasDrawing: function (elt, width, height, params) {
+        
+        var defaultParams  = {
+            background_color : "#ffffff"
+        };
+        var canvasParams = Object.assign({}, defaultParams, params);
 	/* begin vars */
 	var elt = elt;
 	var width = width;
@@ -139,6 +145,15 @@ var CanvasDrawing = {
 		// we scale the image on the canvas size
 		context.drawImage(img, 0, 0, canvas.width, canvas.height);
 	    }
+            else {
+                if (canvasParams.background_color !== null)
+                {
+                    // Positionnement d'un rectablge de couleur backgroungColor sous le dessin du canvas pour ne pas avoir de fond noir à la génération de l'image
+                    context.globalAlpha = 1;
+                    context.fillStyle = canvasParams.background_color;
+                    context.fillRect(0, 0, width, height);
+                }
+            }
 
 	    // set lineJoin property
 	    context.lineJoin = "round";
